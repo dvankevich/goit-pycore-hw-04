@@ -13,6 +13,10 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added."
 
+def list_contacts(contacts):
+    for name, ph_number in contacts.items():
+        print(f"{name}: {ph_number}")
+
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
@@ -22,7 +26,6 @@ def main():
 
         if command in ["close", "exit"]:
             print("Good bye!")
-            print(contacts)
             break
         elif command == "hello":
             print("How can I help you?")
@@ -30,6 +33,8 @@ def main():
             result = add_contact(args, contacts)
             if result:
                 print(result)
+        elif command == "all":
+            list_contacts(contacts)
         else:
             print("Invalid command.")
 
