@@ -22,9 +22,9 @@ def help():
     '''
     Show help and usage message.
     '''
-    print("lists all subdirectories and files in the specified directory using different colors and icons for subdirectories and files")
+    print("Lists all subdirectories and files in the specified directory using different colors and icons for subdirectories and files")
     print("Usage:")
-    print(PurePath(sys.argv[0]).name + "dir_name")
+    print("  " + PurePath(sys.argv[0]).name + " dir_name")
 
 def dir_list(directory, deep):
     '''
