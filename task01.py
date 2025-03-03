@@ -1,10 +1,12 @@
 from pathlib import Path
 
+# ToDo check filetype with https://docs.python.org/3/library/mimetypes.html
+
 def total_salary(f_path):
     '''
     Returns the total and average salary of all employees. 
     Salary information is stored in a file in the format:
-    Name,Salary
+    
     Alex Korp,3000
     Nikita Borisenko,2000
     Sitarama Raju,1000
