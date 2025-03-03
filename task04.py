@@ -7,7 +7,7 @@ def add_contact(args, contacts):
     try:
         name, phone = args
     except ValueError:
-        print("Please use: add Name Number")
+        print("Please use: add username phone")
         return None
     
     contacts[name] = phone
@@ -16,6 +16,16 @@ def add_contact(args, contacts):
 def list_contacts(contacts):
     for name, ph_number in contacts.items():
         print(f"{name}: {ph_number}")
+
+def print_phone(args, contacts):
+    if len(args) != 1:
+        return "Please use: phone username"
+
+    name = args[0]
+    result = contacts.get(name)
+    if not result:
+        return "Contact not found!"
+    return result
 
 def main():
     contacts = {}
@@ -29,10 +39,13 @@ def main():
             break
         elif command == "hello":
             print("How can I help you?")
+            print(contacts)
         elif command == "add":
             result = add_contact(args, contacts)
             if result:
                 print(result)
+        elif command == "phone":
+            print(print_phone(args, contacts))
         elif command == "all":
             list_contacts(contacts)
         else:
