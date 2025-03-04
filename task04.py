@@ -7,9 +7,8 @@ def add_contact(args, contacts):
     try:
         name, phone = args
     except ValueError:
-        print("Please use: add username phone")
-        return None
-    
+        return "Please use: add [username] [phone]"
+        
     contacts[name] = phone
     return "Contact added."
 
@@ -23,13 +22,24 @@ def list_contacts(contacts):
 
 def print_phone(args, contacts):
     if len(args) != 1:
-        return "Please use: phone username"
+        return "Please use: [username]"
 
     name = args[0]
     result = contacts.get(name)
     if not result:
         return "Contact not found!"
     return result
+
+def change_contact(args, contacts):
+    try:
+        name, phone = args
+    except ValueError:
+        return "Please use: change [username] [phone]"
+    result = contacts.get(name)
+    if not result:
+        return "Contact not found!"
+    contacts[name] = phone
+    return "Contact updated."
 
 def main():
     contacts = {}
@@ -43,13 +53,14 @@ def main():
             break
         elif command == "hello":
             print("How can I help you?")
-            print(contacts)
+        elif command == "help" or command == "?":
+            print("hepl message")
         elif command == "add":
-            result = add_contact(args, contacts)
-            if result:
-                print(result)
+            print(add_contact(args, contacts))
         elif command == "phone":
             print(print_phone(args, contacts))
+        elif command == "change":
+            print(change_contact(args, contacts))
         elif command == "all":
             print(list_contacts(contacts))
         else:
