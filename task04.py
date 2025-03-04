@@ -14,8 +14,12 @@ def add_contact(args, contacts):
     return "Contact added."
 
 def list_contacts(contacts):
+    result = ""
     for name, ph_number in contacts.items():
-        print(f"{name}: {ph_number}")
+        result = result + f"{name}: {ph_number}\n"
+    if not result:
+        return "Contacts list is empty."
+    return result
 
 def print_phone(args, contacts):
     if len(args) != 1:
@@ -47,7 +51,7 @@ def main():
         elif command == "phone":
             print(print_phone(args, contacts))
         elif command == "all":
-            list_contacts(contacts)
+            print(list_contacts(contacts))
         else:
             print("Invalid command.")
 
