@@ -28,7 +28,7 @@ def total_salary(f_path):
             total_empl += 1
 
         try:
-            salary_avg = salary_sum / total_empl
+            salary_avg = int(salary_sum / total_empl)
         except:
             return None
             
