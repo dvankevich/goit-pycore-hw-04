@@ -41,6 +41,18 @@ def change_contact(args, contacts):
     contacts[name] = phone
     return "Contact updated."
 
+def print_help():
+    help_msg='''Commands:
+    all - list all records
+    add [name] [phone] - add record
+    change [name] [phone] - change phone number for record with [name]
+    phone [name] - show phone number for record with [name]
+    close, exit - exit from programm
+    hello - print welcome message
+    help - this help message
+    '''
+    return help_msg
+
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
@@ -54,7 +66,7 @@ def main():
         elif command == "hello":
             print("How can I help you?")
         elif command == "help" or command == "?":
-            print("hepl message")
+            print(print_help())
         elif command == "add":
             print(add_contact(args, contacts))
         elif command == "phone":
