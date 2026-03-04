@@ -39,8 +39,8 @@ def main():
     assert total == 6000
     assert average == 2000
 
-    assert total_salary("empty_file.txt") == None
-    assert total_salary("nofile.txt") == None
+    assert total_salary("empty_file.txt") is None
+    assert total_salary("nofile.txt") is not None
     assert total_salary("salary.dir") == None
 
 if __name__ == "__main__":

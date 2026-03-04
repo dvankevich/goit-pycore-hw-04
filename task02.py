@@ -39,9 +39,9 @@ def get_cats_info(path):
 
 
 def main():
-    assert get_cats_info("empty_file.txt") == None
-    assert get_cats_info("nofile.txt") == None
-    assert get_cats_info("salary.dir") == None
+    assert get_cats_info("empty_file.txt") is None
+    assert get_cats_info("nofile.txt") is None
+    assert get_cats_info("salary.dir") is None
 
     #print(get_cats_info("cats_info.csv"))
 
